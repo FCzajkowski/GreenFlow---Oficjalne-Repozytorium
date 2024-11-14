@@ -1,0 +1,94 @@
+:root {
+    --green: #127729;
+    --gray: #666;
+    --light-gray: #eee;
+}
+
+#search__main__container a {
+    text-decoration: none;
+    margin-bottom:10px;
+}
+
+#search__main__container a * {
+    margin: 0;
+}
+
+#search__main__container a div img {
+    width: 125px;
+    height: 125px;
+}
+
+#search__main__container a div {
+    height: 125px;
+    display: flex;
+    align-items: flex-start; /* Aligns items to the top and left */
+    width: 100%;
+    color: black;
+    background-color: var(--light-gray);
+    transition:150ms;
+    border-radius:0px 10px 10px 0px;
+}
+#search__main__container a div:hover{
+    background-color: var(--green);
+    color:white;
+}
+#search__main__container a div h4{font-size:25px}
+#search__main__container a div p{font-size:20px}
+
+#search__main__container a div h4,
+#search__main__container a div p {
+    margin-left: 10px; /* Adds left margin */
+    text-align: left; /* Ensures text aligns to the left */
+}
+
+#search__main__container a div #card__title {
+    display: flex;
+    flex-direction: column;
+    height: 125px;
+    justify-content: center;
+    text-align: left;
+}
+
+.enter_input, button{
+    font-size:14px;
+    padding:15px;
+}
+.enter_input {
+    border-radius: 7px 0px 0px 7px;
+    border: none;
+    width: 300px;
+    color: var(--gray);
+    background-color: var(--light-gray);
+    outline: none;
+}
+
+@media (max-width: 750px) {
+    body * {
+        display: none; /* Hides all content */
+    }
+
+    body::before {
+        content: "Greenflow nie działa / nie jest przystosowane jeszcze na tabletach/telefonach!";
+        display: block;
+        text-align: center;
+        font-size: 24px;
+        color: var(--gray);
+        margin-top: 50vh;
+        transform: translateY(-50%);
+    }
+}
+@media (max-height: 750px) {
+    body * {
+        display: none; /* Hides all content */
+    }
+
+    body::before {
+        content: "Greenflow nie działa / nie jest przystosowane jeszcze na tabletach/telefonach!";
+        display: block;
+        text-align: center;
+        font-size: 24px;
+        color: var(--gray);
+        margin-top: 50vh;
+        transform: translateY(-50%);
+    }
+}

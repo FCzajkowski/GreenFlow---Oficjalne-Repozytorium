@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GreenFlow | {{ user_email.split('@')[0] }}</title>
+    <link rel="stylesheet" href="../static/profile.css">
+    <link rel="icon" type="x-icon" href="../static/GreenFlowIcon.png">
+    <meta name="description" content="GreenFlow - Daj Ubraniom 2 życie, za darmo!">
+    <meta name="keywords" content="GreenFlow, Ubrania za Darmo, Ubrania, Wymiana Ubrań, za darmo">
+    <meta name="author" content="Franciszek Czajkowski">
+
+</head>
+<body>
+    <header>
+        <a href="{{ url_for('home') }}"><img class="logo" src="{{ url_for('static', filename='text.png') }}" alt=""></a>
+        <h1>Welcome, {{ user_email.split('@')[0] }}</h1>
+    </header>
+    <main>
+        <br><br>
+        <form action="{{ url_for('change_email') }}" method="POST">
+            <p>Nowy Email:</p>
+            <input type="email" name="new_email" id="new_email" class="search__input" required>
+            <button type="submit" class="act__button">Zmień</button>
+        </form>
+        <br><br>
+        <form action="{{ url_for('change_password') }}" method="POST">
+            <p>Nowe Hasło:</p>
+            <input type="password" name="new_password" id="new_password" class="search__input" required>
+            <button type="submit">Zmień</button>
+        </form>
+        <a class="aaa" href="{{ url_for('logout') }}" style="margin-top:45px">Wyloguj się</a>
+        <a class="aaa" href="{{ url_for('orders') }}" style="margin-top:45px">Zamówienia</a>
+
+    </main>
+    <footer>
+        <p id="Copyright">
+            Copyright © 2024 Franciszek Czajkowski - All rights Reserved
+        </p>
+    </footer>
+
+</body>
+</html>
+

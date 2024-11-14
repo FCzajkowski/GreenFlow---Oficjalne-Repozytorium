@@ -1,0 +1,21 @@
+<!-- order.html -->
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GreenFlow | Zamówienie {{ item.title }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="icon" type="x-icon" href="../static/GreenFlowIcon.png">
+    <link rel="icon" type="x-icon" href="../static/GreenFlowIcon.png">
+    <meta name="description" content="GreenFlow - Daj Ubraniom 2 życie, za darmo!">
+
+    <meta name="author" content="Franciszek Czajkowski">
+</head>
+<body style="text-align:center">
+    <a href="{{ url_for('home') }}"><img style="cursor:pointer; width:300px; margin-bottom:100px" src="../static/text.png" alt="" id="image__a"></a>
+    <h1>
+        Złożono Zapytanie o przedmiot: {{ item.title }} ;D
+    </h1>
+</body>
+</html>

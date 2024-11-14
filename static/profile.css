@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+:root{
+    --green:#127729;
+    --gray:#666;
+    --light-gray:#eee;
+}
+*{
+    font-family: "DM Sans", sans-serif;
+}
+body{
+    margin:0;
+    height:89vh;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+main{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+header{
+    display:flex;
+    justify-content:space-around;
+    align-items: center;
+    flex-direction: column;
+    height:100px;
+}
+
+#text{
+    width:350px;
+    height:auto;
+}
+.search__input, button{
+    font-size:14px;
+    padding:15px;
+}
+.search__input {
+    border-radius:7px;
+    border:none;
+    width:300px;
+    color:var(--gray);
+    background-color: var(--light-gray);
+    outline: none;
+}
+button, .aaa{
+    border-radius: 0 7px 7px 0;
+    border:none;
+    color:var(--gray);
+    background-color: var(--light-gray);
+    transition:250ms;
+    cursor:pointer;
+}
+.aaa{
+    padding:10px 15px;
+    text-decoration: none;
+    border-radius: 7px
+}
+img{
+    width:400px;
+    height:auto;
+}
+button:hover, .aaa:hover{
+    border:none;
+    background-color: var(--green);
+    color:white;
+}
+@media (max-width: 750px) {
+    body * {
+        display: none; /* Hides all content */
+    }
+
+    body::before {
+        content: "Greenflow nie działa / nie jest przystosowane jeszcze na tabletach/telefonach!";
+        display: block;
+        text-align: center;
+        font-size: 24px;
+        color: var(--gray);
+        margin-top: 50vh;
+        transform: translateY(-50%);
+    }
+}
+@media (max-height: 750px) {
+    body * {
+        display: none; /* Hides all content */
+    }
+
+    body::before {
+        content: "Greenflow nie działa / nie jest przystosowane jeszcze na tabletach/telefonach!";
+        display: block;
+        text-align: center;
+        font-size: 24px;
+        color: var(--gray);
+        margin-top: 50vh;
+        transform: translateY(-50%);
+    }
+}

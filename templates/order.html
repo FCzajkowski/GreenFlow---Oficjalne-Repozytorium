@@ -1,0 +1,28 @@
+<!-- order.html -->
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GreenFlow | {{ item.title }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='profile.css') }}">
+    <link rel="icon" type="x-icon" href="../static/GreenFlowIcon.png">
+    <meta name="description" content="GreenFlow - Daj Ubraniom 2 życie, za darmo!">
+    <meta name="author" content="Franciszek Czajkowski">
+</head>
+<body style="text-align: center">
+    <br><br><br><br><br><br>
+    <a href="{{ url_for('home') }}"><img style="cursor:pointer; width:300px; margin-bottom:100px" src="../static/text.png" alt="" id="image__a"></a>
+    <h2>Zapytanie: {{ item.title }}</h2>
+    <p>Cena: Za Darmo</p>
+<!-- order.html -->
+    <form action="{{ url_for('complete_order', item_id=item.id) }}" method="POST">
+
+        <label for="address">Adres i czas:</label>
+        <input class="search__input" type="text" name="address" id="address" required>
+        <button type="submit" style="border-radius: 5px"> Wyślij Ofertę</button>
+    </form>
+
+</body>
+</html>

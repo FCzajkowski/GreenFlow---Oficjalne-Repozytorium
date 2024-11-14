@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O GreenFlow</title>
+    <link rel="stylesheet" href="../static/style.css">
+    <link rel="icon" type="x-icon" href="../static/GreenFlowIcon.png">
+    <meta name="description" content="GreenFlow - Daj Ubraniom 2 życie, za darmo!">
+    <meta name="keywords" content="GreenFlow, Ubrania za Darmo, Ubrania, Wymiana Ubrań, za darmo">
+    <meta name="author" content="Franciszek Czajkowski">
+
+    <style>
+        main{
+            margin:0px 400px 0px 400px
+        }
+        #about__greenflow{
+            text-align: center;
+        }
+        #about h1{
+            font-size:35px;
+        }
+        #about p{
+            font-size:22px;
+        }
+        h2{
+            font-size:36px;
+            font-weight:400;
+        }
+        h3{font-size:32px;}
+        #qna p{
+            font-size:20px;
+            margin-bottom:150px;
+        }
+        @media (max-width: 1300px) {
+            main{
+                margin:0 200px 0 200px
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <a href="{{ url_for('home') }}"><img id="text" src="../static/text.png" alt=""></a>
+    </header>
+    <main id="about__greenflow">
+        <section id="about">
+            <p>GreenFlow to proekologiczna platforma umożliwiająca wymianę i sprzedaż ubrań, aby dać im nowe życie. Wierzymy, że każdy zasługuje na dostęp do zrównoważonej mody i możliwość włączenia się w działania na rzecz ochrony środowiska. Nasza strona pomaga w ograniczaniu nadprodukcji i marnowania zasobów, umożliwiając wymianę odzieży w sposób przyjazny dla natury. Dołącz do GreenFlow i bądź częścią ruchu, który promuje ekologiczne podejście do mody!</p>
+        </section>
+    
+        <section id="qna">
+            <h2>Najczęściej zadawane pytania:</h2>
+            <dl>
+                <h3>Koszt Wystawienia?</h3>
+                <p>100% darmowy</p>
+    
+                <h3>Czy mogę oddawać i wymieniać ubrania?</h3>
+                <p>Tak, możesz zarówno oddawać, jak i wymieniać ubrania z innymi użytkownikami.</p>
+    
+                <h3>Jak długo trwa wystawienie oferty?</h3>
+                <p>Wystawienie oferty jest szybkie i zajmuje tylko kilka minut.</p>
+    
+                <h3>Czy muszę zakładać konto?</h3>
+                <p>Tak, konto użytkownika jest wymagane, aby zapewnić bezpieczeństwo transakcji.</p>
+    
+                <h3>Czy mogę wystawić używane ubrania?</h3>
+                <p>Oczywiście! GreenFlow zachęca do wystawiania używanej odzieży, aby wspierać zrównoważony rozwój.</p>
+    
+            </dl>
+        </section>
+    </main>
+    <footer>
+        <p id="Copyright">
+            Copyright © 2024 Franciszek Czajkowski - All rights Reserved
+        </p>
+    </footer>
+
+</body>
+</html>

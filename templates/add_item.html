@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GreenFlow | Dodaj Przedmiot :)</title>
+    <link rel="stylesheet" href="../static/style.css">
+    <link rel="stylesheet" href="../static/card.css">
+    <link rel="icon" type="x-icon" href="../static/GreenFlowIcon.png">
+    <meta name="description" content="GreenFlow - Daj Ubraniom 2 życie, za darmo!">
+    <meta name="keywords" content="GreenFlow, Ubrania za Darmo, Ubrania, Wymiana Ubrań, za darmo">
+    <meta name="author" content="Franciszek Czajkowski">
+
+    <style>
+        #add__item{
+            border-radius: 7px;
+            border:none;
+            color:var(--gray);
+            background-color: var(--light-gray);
+            transition:250ms;
+            cursor:pointer;
+            margin-top:40px;
+            padding:10px 15px;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <header style="margin-top:100px">
+        <a href="{{ url_for('home') }}"><img style="cursor:pointer; width:300px; margin-bottom:100px" src="../static/text.png" alt="" id="image__a"></a>
+    </header>
+
+    <main id="add__main" style="height:60vh; margin-top:100px;">
+        <h1>Dodaj Nowy Przedmiot</h1>
+        <form action="{{ url_for('add_item') }}" method="POST" enctype="multipart/form-data">
+            <label for="title">Nazwa:</label>
+            <input class="enter_input" type="text" id="title" name="title" required><br>
+
+            <label for="description" >Opis:</label>
+            <textarea id="description" name="description" class="search__input" required></textarea><br>
+
+            <!-- Category selection dropdown -->
+            <label for="category">Kategoria:</label>
+            <select id="category" name="category" required>
+                <option value="Mężczyzna">Mężczyzna</option>
+                <option value="Kobieta">Kobieta</option>
+                <option value="Inne">Inne</option>
+            </select><br>
+
+
+            <label class="custom-file-upload" for="image">
+                <div class="icon">
+                    <!-- SVG for the upload icon -->
+                </div>
+                <div class="text">
+                    <span>Kliknij by dodać Przedmiot</span>
+                </div>
+                <input type="file" id="image" name="image" accept="image/*">
+            </label>
+
+            <label for="pickup_location">Miejsce odbioru:</label>
+            <input class="enter_input" type="text" id="pickup_location" name="pickup_location" required><br>
+
+            <label for="contact_phone">Telefon kontaktowy:</label>
+            <input class="enter_input" type="text" id="contact_phone" name="contact_phone" required><br>
+
+            <!-- Submit button -->
+            <button id="add__item" type="submit">Dodaj Przedmiot</button>
+        </form>
+
+    </main>
+
+    <footer>
+        <p id="Copyright">
+            Copyright © 2024 Franciszek Czajkowski - All rights Reserved
+        </p>
+    </footer>
+</body>
+</html>

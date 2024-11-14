@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GreenFlow | Daj Ubraniom 2 życie</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="icon" type="x-icon" href="../static/GreenFlowIcon.png">
+    <meta name="description" content="GreenFlow - Daj Ubraniom 2 życie, za darmo!">
+    <meta name="keywords" content="GreenFlow, Ubrania za Darmo, Ubrania, Wymiana Ubrań, za darmo">
+    <meta name="author" content="Franciszek Czajkowski">
+</head>
+<body>
+    <header>
+        <a href="{{ url_for('home') }}"><img class="logo" src="{{ url_for('static', filename='GreenFlow.png') }}" alt=""></a>
+        <div id="search__input__div">
+            <!-- Add category selection dropdown -->
+            <select id="category_filter" name="category" style="display:none">
+                <option value="">Wszystkie</option>
+                <option value="Kobieta">Kobieta</option>
+                <option value="Mężczyzna">Mężczyzna</option>
+                <option value="Inne">Dzieci</option>
+            </select>
+            <input type="text" id="search__input" class="search__input" placeholder="Wyszukaj po nazwie...">
+            <button id="search__button" onclick="searchWithinCategory()">Wyszukaj</button>
+        </div>
+        <div id="header__buttons">
+            {% if user_email %}
+                <a href="{{ url_for('profile') }}"><button id="Login__Button">{{ user_email.split('@')[0] }}</button></a>
+            {% else %}
+                <a href="{{ url_for('form') }}"><button id="Login__Button">Zaloguj się</button></a>
+            {% endif %}
+
+            <a href="{{ url_for('add_item') }}"><button id="Wystaw__Button">Wystaw</button></a>
+        </div>
+    </header>
+    <nav>
+        <a href="{{ url_for('search', category='Kobieta') }}"><button id="nav__button__1" class="nav__button">Kobiety</button></a>
+        <a href="{{ url_for('search', category='Mężczyzna') }}"><button id="nav__button__2" class="nav__button">Mężczyźni</button></a>
+        <a href="{{ url_for('search', category='Dzieci') }}"><button id="nav__button__3" class="nav__button">Dzieci</button></a>
+        <a href="{{ url_for('about') }}"><button id="nav__button__4" class="nav__button">O GreenFlow</button></a>
+    </nav>
+    <main>
+        <div id="beautiful__container">
+            <div id="main__beautiful">
+                <p>
+                    Piękne, Nieprawdaż? <br>
+                    Ten Krajobraz <red>nie przetrwa</red> jeżeli dalej będziemy niszczyć środowisko <br>
+                    By temu zapobiec, używaj ubrań z drugiej ręki, dzięki czemu marki ubrań będą musiały produkować mniej
+                </p>
+            </div>
+        </div>
+        <h2 style="text-align: center">
+            Nowo Dodane
+        </h2>
+        <br>
+        <div id="main__added">
+
+            <div id="added__container" style="display: flex; gap: 20px; justify-content: center;">
+
+                <!-- First item -->
+                <a href="{{ url_for('item', item_id=1) }}" class="a__index"> <!-- Replace item_id with actual IDs -->
+                    <div class="div__div">
+                        <div class="imgg"><img class="imgg" src="{{ url_for('static', filename='uploads/NIKE_AIR_FORCE_1_LOW____07_LV8_TOASTY_RATTANs-mini.jpg') }}" alt="Item 1" class="img__index"></div>
+                        <h2>buty AirForce</h2>
+                        <p>Buty Męskie AirForce, Rozmiar 47</p>
+                    </div>
+                </a>
+
+                <!-- Second item -->
+                <a href="{{ url_for('item', item_id=4) }}" class="a__index">
+                    <div class="div__div">
+                        <div class="imgg"><img class="imgg" src="{{ url_for('static', filename='uploads/SpodnieNarciarskieDamskie.png') }}" alt="Item 1" class="img__index"></div>
+                        <h2>Spodnie Narciarskie</h2>
+                        <p>Spodnie Narciarskie Damskie</p>
+                    </div>
+                </a>
+
+                <!-- Third item -->
+                <a href="{{ url_for('item', item_id=6) }}" class="a__index">
+                    <div class="div__div">
+                        <div class="imgg"><img class="imgg" src="{{ url_for('static', filename='uploads/czapkazLED.png') }}" alt="Item 1" class="img__index"></div>
+                        <h2>Czapka z LED</h2>
+                        <p>Czapka zimowa, pomarańczowa...</p>
+                    </div>
+                </a>
+
+            </div>
+
+        </div>
+    </main>
+    <footer>
+        <p id="Copyright">
+            Copyright © 2024 Franciszek Czajkowski - All rights Reserved
+        </p>
+    </footer>
+
+    <script>
+        document.getElementById("nav__button__4").onclick = function() {
+            window.location.href = "{{ url_for('about') }}";
+        };
+        document.getElementById("Login__Button").onclick = function() {
+            window.location.href = "{{ url_for('form') }}";
+        };
+
+        function searchWithinCategory() {
+            const searchTerm = document.getElementById('search__input').value;
+            const category = document.getElementById('category_filter').value;
+
+            // Build the URL based on selected category and search term
+            let url = "{{ url_for('search') }}";
+            if (category) {
+                url += "?category=" + encodeURIComponent(category);
+            }
+            if (searchTerm) {
+                url += (category ? "&" : "?") + "search_term=" + encodeURIComponent(searchTerm);
+            }
+
+            window.location.href = url;
+        }
+    </script>
+</body>
+</html>

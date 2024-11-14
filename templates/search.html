@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GreenFlow | Wyszukaj</title>
+    <link rel="stylesheet" href="../static/style.css">
+    <link rel="stylesheet" href="../static/card.css">
+    <link rel="icon" type="x-icon" href="../static/GreenFlowIcon.png">
+    <meta name="description" content="GreenFlow - Daj Ubraniom 2 życie, za darmo!">
+    <meta name="keywords" content="GreenFlow, Ubrania za Darmo, Ubrania, Wymiana Ubrań, za darmo">
+    <meta name="author" content="Franciszek Czajkowski">
+
+    <style>
+        :root{
+            --green:#127729;
+            --gray:#666;
+            --light-gray:#eee;
+        }
+
+        select{
+            background-color:var(--light-gray);
+            border:none;
+            padding:10px 15px;
+            border-radius:15px;
+            transition:250ms;
+        }
+        select:hover{
+          color:var(--green)
+        }
+        .option{transition:250ms}
+
+        .option:hover{
+          background-color:var(--green);
+          color:white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="{{ url_for('home') }}"><img class="logo" src="{{ url_for('static', filename='GreenFlow.png') }}" alt=""></a>
+        <div id="search__input__div">
+            <input type="text" id="search__input" class="search__input" placeholder="Wyszukaj po nazwie...">
+            <button id="search__button" onclick="searchWithinCategory()">Wyszukaj</button>
+        </div>
+        <div id="header__buttons" style="font-size:13px">
+            {% if user_email %}
+                <a href="{{ url_for('profile') }}"><button id="Login__Button">{{ user_email.split('@')[0] }}</button></a>
+            {% else %}
+                <a href="{{ url_for('form') }}"><button id="Login__Button">Zaloguj się</button></a>
+            {% endif %}
+
+            <a href="{{ url_for('add_item') }}"><button id="Wystaw__Button">Wystaw</button></a>
+        </div>
+    </header>
+    <nav style="background-color:white;">
+        <select id="category_filter" name="category" onchange="searchWithinCategory()">
+            <option value="">----</option>
+            <option value="">Wszystkie</option>
+            <option value="Mężczyzna">Mężczyzna</option>
+            <option value="Kobieta">Kobieta</option>
+            <option value="Inne">Inne</option>
+        </select>
+    </nav>
+
+    <nav style="
+    background-color: white;
+    font-size:25px;
+    margin:50px 0px;
+    ">Wyniki Wyszukania: </nav>
+    <section id="search__section">
+        <main id="search__main">
+
+        <div id="search__main__container">
+            <!--Place for Cards-->
+            {% for item in items %}
+                <a href="{{ url_for('item', item_id=item.id) }}">
+                    <div>
+                        {% if item.image %}
+                            <img src="../static/uploads/{{ item.image }}" alt="{{ item.title }}">
+
+                        {% else %}
+                            <img src="{{ url_for('static', filename='placeholder.png') }}" alt="gf">
+                        {% endif %}
+
+                        <div id="card__title">
+                            <h4>{{ item.title }}</h4>
+                            <p>{{ item.description }}</p>
+                            <p><em>by {{ item.author }}</em></p>
+                        </div>
+                    </div>
+                </a>
+            {% endfor %}
+        </div>
+
+        </main>
+    </section>
+    <footer>
+        <p id="Copyright">
+            Copyright © 2024 Franciszek Czajkowski - All rights Reserved
+        </p>
+    </footer>
+
+
+</body>
+<script>
+    function filterByCategory() {
+        const category = document.getElementById('category_filter').value;
+        window.location.href = "{{ url_for('search') }}?category=" + category;
+    }
+    function searchWithinCategory() {
+        const searchTerm = document.getElementById('search__input').value;
+        const category = document.getElementById('category_filter').value;
+
+        // Construct the URL based on the chosen category and search term
+        let url = "{{ url_for('search') }}";
+        if (searchTerm) {
+            url += (category ? "&" : "?") + "search_term=" + encodeURIComponent(searchTerm);
+        }
+        if (category) {
+            url += "?category=" + encodeURIComponent(category);
+        }
+
+        window.location.href = url;
+    }
+
+</script>
+</html>

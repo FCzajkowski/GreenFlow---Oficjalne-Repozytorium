@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GreenFlow | {{ item.name }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="icon" type="x-icon" href="../static/GreenFlowIcon.png">
+    <meta name="description" content="GreenFlow - Daj Ubraniom 2 życie, za darmo!">
+    <meta name="keywords" content="GreenFlow, Ubrania za Darmo, Ubrania, Wymiana Ubrań, za darmo">
+    <meta name="author" content="Franciszek Czajkowski">
+</head>
+<body>
+    <header>
+        <a href="{{ url_for('home') }}">
+            <img class="logo" src="{{ url_for('static', filename='GreenFlow.png') }}" alt="Logo">
+        </a>
+        <div id="search__input__div">
+            <input type="text" id="search__input" class="search__input" placeholder="Wyszukaj po nazwie...">
+            <button id="search__button">Wyszukaj</button>
+        </div>
+        <div id="header__buttons">
+            {% if user_email %}
+                <a href="{{ url_for('profile') }}"><button id="Login__Button">{{ user_email.split('@')[0] }}</button></a>
+            {% else %}
+                <a href="{{ url_for('form') }}"><button id="Login__Button">Zaloguj się</button></a>
+            {% endif %}
+
+            <a href="{{ url_for('add_item') }}"><button id="Wystaw__Button">Wystaw</button></a>
+        </div>
+    </header>
+
+    <main style="height: 79vh; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+        <img src="{{ url_for('static', filename='uploads/' + item.image) }}" alt="Item Image" style="border-radius: 15px; max-width: 500px; max-height: 400px; margin-top:5%; margin-bottom: 20px;">
+        <h2>{{ item.title }}</h2>
+        <p>{{ item.description }}</p>
+        <div id="item__container" style="display: flex; justify-content: space-between; width: 100%; max-width: 600px; margin-top: 20px;">
+            <div style="flex: 1; text-align: left;">
+                <p><strong>Sprzedający:</strong> {{ item.author }}</p>
+                <p><strong>Kategoria:</strong> {{ item.category }}</p>
+            </div>
+            <div style="flex: 1; text-align: right;">
+                <p><strong>Miejsce Odbioru:</strong> {{ item.pickup_location }}</p>
+                <p><strong>Numer Kontaktowy:</strong> {{ item.contact_phone }}</p>
+            </div>
+        </div>
+        <a href="{{ url_for('order_item', item_id=item.id) }}">
+            <button id="get__button">
+                Zdobądź
+            </button>
+        </a>
+    </main>
+    <footer>
+        <p id="Copyright">
+            Copyright © 2024 Franciszek Czajkowski - All rights Reserved
+        </p>
+    </footer>
+</body>
+</html>

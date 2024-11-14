@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GreenFlow | Zaloguj się</title>
+    <link rel="stylesheet" href="../static/style.css">
+    <link rel="icon" type="x-icon" href="../static/GreenFlowIcon.png">
+    <meta name="description" content="GreenFlow - Daj Ubraniom 2 życie, za darmo!">
+    <meta name="keywords" content="GreenFlow, Ubrania za Darmo, Ubrania, Wymiana Ubrań, za darmo">
+    <meta name="author" content="Franciszek Czajkowski">
+</head>
+<body id="form__main">
+    <main id="form">
+        <a href="{{ url_for('home') }}"><img style="cursor:pointer; width:300px; margin-bottom:100px" src="../static/text.png" alt="" id="image__a"></a>
+        <p>
+            Zaloguj się do GreenFlow
+        </p>
+        <form method="POST" action="{{ url_for('form') }}">
+            <label for="form__login">Email</label>
+            <input type="email" name="email" class="search__input" id="form__login" required>
+            <label for="form__password">Password</label>
+            <input type="password" name="password" class="search__input" id="form__password" required>
+
+            <div>
+                <input type="submit" value="Zaloguj się" id="form__submit">
+
+                <a href="{{ url_for('registrate' )}}">Stwórz Konto</a>
+            </div>
+        </form>
+    </main>
+
+</body>
+</html>

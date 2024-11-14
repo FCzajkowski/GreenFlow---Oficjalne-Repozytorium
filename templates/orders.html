@@ -1,0 +1,56 @@
+<!-- orders.html -->
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GreenFlow | Oczekujące Zapytania</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='option.css') }}">
+    <link rel="icon" type="x-icon" href="../static/GreenFlowIcon.png">
+    <meta name="description" content="GreenFlow - Daj Ubraniom 2 życie, za darmo!">
+    <meta name="author" content="Franciszek Czajkowski">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+        button{
+            padding: 10px 20px;
+            background-color: var(--light-gray);
+            color: black;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition:250ms;
+        }
+        button:hover{
+            background-color: var(--green);
+            color:white;
+            border-radius: 10px;
+        }
+        #red__button:hover{
+            background-color:#cc3333;
+        }
+    </style>
+</head>
+<body style="text-align: center">
+    <br>
+    <a href="{{ url_for('home') }}"><img class="logo" src="{{ url_for('static', filename='GreenFlow.png') }}" alt="" style="width:270px; height:auto;"></a>
+    <h2>Oczekujące Zapytania</h2>
+    <div style="display:grid; grid-template-columns: repeat(3, 1fr)">
+        {% for order in orders %}
+            <div style="width:350px; height:600px">
+                Przedmiot: {{ order.item.title }}<br>
+                Sprzedawca: {{ order.buyer_email }}<br>
+                Status: Oczekujące<br>
+                <form action="{{ url_for('update_order', order_id=order.id, action='accept') }}" method="POST">
+                    <button type="submit">Zaakceptuj</button>
+                </form>
+                <form action="{{ url_for('update_order', order_id=order.id, action='decline') }}" method="POST">
+                    <button id="red__button" type="submit">Odrzuć</button>
+                </form>
+            </div>
+        {% endfor %}
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,323 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+:root{
+    --green:#127729;
+    --gray:#666;
+    --light-gray:#eee;
+}
+*{
+    text-decoration: none;
+    font-family: "DM Sans", sans-serif;
+}
+body{
+    margin:0;
+    text-align:center;
+}
+header{
+    display:flex;
+    justify-content:space-around;
+    align-items: center;
+    height:100px;
+}
+
+header a, header div{
+    width:1fr;
+}
+.logo{
+    width:125px;
+    height:auto;
+}
+#text{
+    width:350px;
+    height:auto;
+}
+
+.search__input__div{
+    display:flex;
+    justify-content: center;
+}
+.search__input, #search__button{
+    font-size:14px;
+    padding:15px;
+}
+.search__input {
+    border-radius:7px 0 0 7px;
+    border:none;
+    width:300px;
+    color:var(--gray);
+    background-color: var(--light-gray);
+    outline: none; 
+}
+
+#search__button{
+    border-radius: 0 7px 7px 0;
+    border:none;
+    color:var(--gray);
+    background-color: var(--light-gray);
+    transition:250ms;
+    cursor:pointer;
+}
+#search__button:hover{
+    border:none;
+    background-color: var(--green);
+    color:white;
+}
+
+#header__buttons button{
+    background-color: white;
+    border:none;
+    border-bottom:1px solid white;
+    padding:5px 7px;
+    cursor:pointer;
+    transition:250ms
+}
+
+#Login__Button{color:var(--green)}
+#Wystaw__Button:hover{border-bottom:1px solid var(--gray);}
+#Wystaw__Button:active{
+    transform:translateY(3px);
+    transition:50ms;
+    background-color: var(--gray);
+    border-radius:5px;
+    color:white;
+}
+#Login__Button:hover{border-bottom:1px solid var(--green);}
+#Login__Button:active{
+    transform:translateY(3px);
+    transition:50ms;
+    background-color: var(--green);
+    border-radius:5px;
+    color:white;
+}
+nav{
+    width:100%;
+    display:flex;
+    justify-content: center;
+    background-color: var(--light-gray);
+}
+.nav__button{
+    background-color: var(--light-gray);
+    border:none;
+    height:50px;
+    cursor:pointer;
+    margin:0px 10px 0px 10px;
+    width:100px;
+    transition:150ms;
+}
+.nav__button:hover{
+    background-color: #ddd;
+}
+#nav__button__4:hover{
+    background-color: #ded
+    
+}
+
+#beautiful__container{
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+    width:100%;
+}
+
+#main__beautiful {
+    background-image: url('Landscape.jpg');
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat;
+    height:400px;
+    color:white;
+    font-weight: 600;
+    margin:0;
+    font-size:21px;
+    position:relative;
+    width:800px;
+    border-radius:10px;
+}
+#main__beautiful p{
+    position:absolute;
+    bottom:0;
+    right:0;
+    left:0;
+    text-align: center;
+}
+red{
+    color:rgb(209, 0, 0);
+}
+#main__added{
+    text-align: center;
+    width:100%;
+    display:flex;
+    justify-content: center;
+    columns:300px;
+}
+footer{
+    margin-top:300px;
+    height:75px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--green);
+    color:white;
+}
+
+
+/* another files styles*/
+#form__main, #form, form{
+    height:89vh;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+#form{
+    background-color: #fdfdfd;
+    width:400px;
+    height:400px;
+    padding:40px;
+    border:4px solid var(--light-gray);
+    border-radius:15px;
+}
+form :is(img, input){
+    margin:10px;
+}
+#form__submit, #form form a{
+    border:none;
+    color:var(--gray);
+    background-color: var(--light-gray);
+    transition:250ms;
+    cursor:pointer;
+    padding:15px;
+    font-size:15px;
+    text-decoration: none;
+    color:black;
+}
+#form__submit:hover,#form form a:hover{
+    border:none;
+    background-color: var(--green);
+    color:white;
+    border-radius:7px
+}
+aside, #search__main{
+    border-radius:10px;
+}
+aside{
+    background-color: var(--light-gray);
+    height:500px;
+    width:400px;
+    margin-right:20px;
+}
+
+#search__main{
+    width:100%; 
+    min-height: 400px;
+    background-color: var(--light-gray);
+}
+
+#search__section{
+    display:flex;
+    justify-content: space-around;
+    margin:0px 20px 0px 20px;
+}
+
+#add__main{
+    display:flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+#add__item:hover{
+    background-color:var(--green);
+    color:white;
+}
+.custom-file-upload {
+    height: 200px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    cursor: pointer;
+    justify-content: center;
+    border: 2px dashed #cacaca;
+    background-color: rgba(255, 255, 255, 1);
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0px 48px 35px -48px rgba(0, 0, 0, 0.1);
+}
+
+.custom-file-upload .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.custom-file-upload .icon svg {
+    height: 80px;
+    fill: rgba(75, 85, 99, 1);
+}
+
+.custom-file-upload .text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.custom-file-upload .text span {
+    font-weight: 400;
+    color: rgba(75, 85, 99, 1);
+}
+
+.custom-file-upload input[type="file"] {
+    display: none;
+}
+
+@media (max-width: 750px), (max-height: 750px){
+    body * {
+        display: none; /* Hides all content */
+    }
+
+    body::before {
+        content: "Greenflow nie działa / nie jest przystosowane jeszcze na tabletach/telefonach!";
+        display: block;
+        text-align: center;
+        font-size: 24px;
+        color: var(--gray);
+        margin-top: 50vh;
+        transform: translateY(-50%);
+    }
+}
+#get__button{
+    padding: 10px 20px;
+    background-color: var(--light-gray);
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition:250ms;
+}
+#get__button:hover{
+    background-color: var(--green);
+    color:white;
+    border-radius: 10px;
+}
+
+
+.a__index{
+    width:250px;
+    height:300px;
+    border:2px solid var(--light-gray);
+    border-radius:10px;
+    text-align: center;
+    transition:250ms;
+    color:var(--gray)
+}
+.a__index:hover{
+    border:2px solid var(--green);
+    color:var(--green);
+}
+.imgg{
+    height:200px;
+    max-width:250px;
+}
+a{cursor:pointer;}
