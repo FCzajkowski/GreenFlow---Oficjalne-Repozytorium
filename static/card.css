@@ -62,22 +62,7 @@
     outline: none;
 }
 
-@media (max-width: 750px) {
-    body * {
-        display: none; /* Hides all content */
-    }
-
-    body::before {
-        content: "Greenflow nie działa / nie jest przystosowane jeszcze na tabletach/telefonach!";
-        display: block;
-        text-align: center;
-        font-size: 24px;
-        color: var(--gray);
-        margin-top: 50vh;
-        transform: translateY(-50%);
-    }
-}
-@media (max-height: 750px) {
+@media (max-width: 750px), (max-height: 500px){
     body * {
         display: none; /* Hides all content */
     }
