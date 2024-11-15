@@ -45,7 +45,7 @@ header a, header div{
     width:300px;
     color:var(--gray);
     background-color: var(--light-gray);
-    outline: none; 
+    outline: none;
 }
 
 #search__button{
@@ -108,7 +108,6 @@ nav{
 }
 #nav__button__4:hover{
     background-color: #ded
-    
 }
 
 #beautiful__container{
@@ -119,9 +118,9 @@ nav{
 }
 
 #main__beautiful {
-    background-image: url('Landscape.jpg');
-    background-size: cover; 
-    background-position: center; 
+    background-image: url('LandScape.jpg');
+    background-size: cover;
+    background-position: center;
     background-repeat: no-repeat;
     height:400px;
     color:white;
@@ -207,7 +206,7 @@ aside{
 }
 
 #search__main{
-    width:100%; 
+    width:100%;
     min-height: 400px;
     background-color: var(--light-gray);
 }
@@ -271,7 +270,7 @@ aside{
     display: none;
 }
 
-@media (max-width: 750px), (max-height: 750px){
+@media (max-width: 750px), (max-height: 500px){
     body * {
         display: none; /* Hides all content */
     }
