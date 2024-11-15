@@ -6,7 +6,7 @@ import os
 from flask_mail import Mail, Message
 from datetime import datetime
 """
-main root: 
+main root:
 
 """
 
@@ -16,7 +16,8 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] = os.urandom(24)
 app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024  # 16 MB limit
-app.config['UPLOAD_FOLDER'] = 'static/uploads/'
+app.config['UPLOAD_FOLDER'] = os.path.join(os.getcwd(), 'static/uploads/')
+
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
 app.config['SQLALCHEMY_POOL_RECYCLE'] = 3600  # Recycle connections after 1 hour
 app.config['SQLALCHEMY_POOL_TIMEOUT'] = 30  # Timeout for obtaining a connection
@@ -172,6 +173,7 @@ def add_item():
         contact_phone = request.form['contact_phone']      # New field
         author = session.get('user_email')  # Get logged-in user's email
 
+
         # Ensure user is logged in
         if author is None:
             flash("You must be logged in to add an item.")
@@ -191,7 +193,12 @@ def add_item():
 
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
-            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            upload_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+            try:
+                file.save(upload_path)
+                print(f"File saved successfully to {upload_path}")
+            except Exception as e:
+                print(f"Error saving file: {e}")
         else:
             flash('Invalid file type. Allowed types: png, jpg, jpeg, gif.', 'danger')
             return redirect(request.url)
